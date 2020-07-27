@@ -1,0 +1,178 @@
+{
+  "intents": [
+    {
+      "intent": "Turns",
+      "examples": [
+        {
+          "text": "Turn right"
+        },
+        {
+          "text": "Turn left."
+        },
+        {
+          "text": "left"
+        },
+        {
+          "text": "go forward."
+        },
+        {
+          "text": "go backward"
+        },
+        {
+          "text": "right"
+        },
+        {
+          "text": "forwards"
+        },
+        {
+          "text": "backwards"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "End_Greeting",
+      "examples": [
+        {
+          "text": "bye"
+        },
+        {
+          "text": "I finished"
+        },
+        {
+          "text": "destination reached."
+        },
+        {
+          "text": "good bye"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "End_Greeting",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Thans for leading me. Good bye."
+              },
+              {
+                "text": "Thank you. Bye."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#End_Greeting",
+      "dialog_node": "node_6_1595871525793",
+      "previous_sibling": "node_8_1595862450557"
+    },
+    {
+      "type": "standard",
+      "title": "Turns",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Ok, I am turning to the direction you chosen."
+              },
+              {
+                "text": "I am going to what you select."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Turns",
+      "dialog_node": "node_8_1595862450557",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_6_1595871525793",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello, I am robot OTRAS. Text me the direction you wanted me to go please."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "system_entities": {
+      "enabled": true
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "My first skill",
+  "language": "en",
+  "description": ""
+}
